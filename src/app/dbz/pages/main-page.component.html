@@ -3,9 +3,15 @@
 
 <div class="row">
   <div class="col">
-    <dbz-list [guests]="guests"></dbz-list>
+    <dbz-list
+    (onSelectedGuest)="dbzService.onSelectedGuest($event)"
+    [guests]="dbzService.guests"
+    (onDeleteGuest)="dbzService.onDeleteGuest($event)"></dbz-list>
+
   </div>
   <div class="col">
-    <dbz-add-guest></dbz-add-guest>
+    <dbz-add-guest
+    [guest]="dbzService.guest"
+    (onNewGuest)="dbzService.onNewGuest($event)"></dbz-add-guest>
   </div>
 </div>

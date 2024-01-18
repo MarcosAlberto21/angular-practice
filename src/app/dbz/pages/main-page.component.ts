@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Guest } from '../interfaces/guest.interface';
+import { DbzService } from '../services/first-service.service';
 
 
 @Component({
@@ -9,30 +9,9 @@ import { Guest } from '../interfaces/guest.interface';
 
 export class MainPageComponent  {
 
-  public guests: Guest[] = [
-    {
-      name: 'Goku',
-      power: 15000
-    },
-    {
-      name: 'Vegeta',
-      power: 7500
-    },
-    {
-      name: 'Krillin',
-      power: 5000
-    },
-    {
-      name: 'Piccolo',
-      power: 5000
-    },
-    {
-      name: 'Gohan',
-      power: 5000
-    },
-    {
-      name: 'Trunks',
-      power: 5000
-    },
-  ];
+  constructor(public dbzService: DbzService) {
+
+   }
+
+
 }

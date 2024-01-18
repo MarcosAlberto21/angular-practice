@@ -1,4 +1,4 @@
-import { Component , Input} from '@angular/core';
+import { Component , Input, Output, EventEmitter} from '@angular/core';
 import { Guest } from '../../interfaces/guest.interface';
 
 @Component({
@@ -8,6 +8,22 @@ import { Guest } from '../../interfaces/guest.interface';
 })
 export class ListComponent {
 
+  // emitters
   @Input()
   public guests: Guest[] = [];
+
+  @Output()
+  public onSelectedGuest : EventEmitter<Guest> = new EventEmitter();
+
+  @Output()
+  public onDeleteGuest : EventEmitter<string> = new EventEmitter();
+
+  // methods
+  selectGuest(guest: Guest): void {
+    this.onSelectedGuest.emit(guest);
+  }
+
+  deleteGuest(id: string): void {
+    this.onDeleteGuest.emit(id);
+  }
 }
